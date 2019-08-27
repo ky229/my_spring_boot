@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -33,6 +34,17 @@ public class TestControllerTest extends ExcelApplicationTests{
     public void writeWithHead() throws IOException{
         controller.writeWithHead();
     }
+
+    @Test
+    public void testFile(){
+        String fileName = "withHead.xlsx";
+        URL url = this.getClass().getClassLoader().getResource(fileName);
+        System.out.println(url.getPath() );
+        System.out.println(url.getFile());
+        System.out.println(url.getHost());
+        System.out.println(url);
+    }
+
 
     @Test
     public void writeFaqId() throws IOException{
